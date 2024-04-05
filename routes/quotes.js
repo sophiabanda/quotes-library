@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
+var quotesController = require('../controller/quotes');
+const ensureLoggedIn = require("../config/ensureLoggedIn");
 
-/* GET users listing. */
-router.get("/", function(req, res, next) {
-  res.send("respond with a resource");
-});
+// GET quotes
+router.get("/", ensureLoggedIn, quotesController.index);
 
 module.exports = router;
