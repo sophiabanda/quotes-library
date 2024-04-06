@@ -16,14 +16,13 @@ function newQuote(req, res) {
     res.render("quotes/new", {title: "Add a new Quote"})
 }
 
-async function create(req, res) { 
+function create(req, res) {
     try {
-        
-        const quote = await Quote.create(req.body);
-        console.log(quote)
-        res.redirect("/quotes");
+        Quote.create(req.body);
+        console.log('body-->', req.body);
+        res.redirect("/quotes")
     } catch(error) {
-        console.log("error--->", error)
-        res.render({errorMessage: error.message})
+        console.log('error -->', error)
     }
 }
+

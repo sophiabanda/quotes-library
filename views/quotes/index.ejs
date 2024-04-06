@@ -3,10 +3,10 @@
 
 <% quotes.forEach((quote) => { %>
     <section style="border: 2px solid black">
-        <p>"<%= quote.content %>"</p>
+        <h4>"<%= quote.content %>"</h4>
         <p>Created: <%= quote.createdDate.toLocaleString("en-US", {timeZone: "UTC"}) %></p>
-        <h6><%= quote.author %></h6>
         <button>Edit</button>
     </section>
     <% }) %>
+    
 <%- include('../partials/footer') %>

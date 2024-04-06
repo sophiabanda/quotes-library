@@ -7,7 +7,6 @@ const quoteSchema = new Schema({
         type: String,
         required: true
     },
-    genre: [String],
     author: {
         type: Schema.Types.ObjectId,
         ref: 'Author'

@@ -1,8 +1,10 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   border: 2px dotted green;
-
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
 nav {
@@ -21,3 +23,4 @@ a {
   border-radius: 50%;
   height: 8vh;
 }
+
