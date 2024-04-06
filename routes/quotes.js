@@ -4,7 +4,7 @@ var quotesController = require('../controller/quotes');
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET quotes
-router.get("/", quotesController.index);
+router.get("/", ensureLoggedIn, quotesController.index);
 //NEW quote
 router.get("/new", ensureLoggedIn, quotesController.new);
 // POST
