@@ -1,8 +1,23 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border: 2px dotted green;
+
+}
+
+nav {
+  border: 2px solid green;
+  padding: 50px;
+  justify-content: center;
 }
 
 a {
   color: #00B7FF;
+  font-size: 3vh;
+  text-decoration: none;
+}
+
+#user-avatar {
+  border-radius: 50%;
+  height: 8vh;
 }

@@ -9,14 +9,20 @@
   <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
 </head>
 <body>
-  <nav style="background-color: black; height: 35px; font-size: 25px;">
+  <nav>
     <% if(user) { %>
-      <a href="/logout">Logout</a>
+      <a href="/logout"><img id="user-avatar"src="<%= user.avatar %>" alt="user avatar">&nbsp;Logout</a>
+      &nbsp
       <a href="/">Home</a>
+      &nbsp
       <a href="/quotes">My Quotes</a>
+      &nbsp
+      <a href="/quotes/new">Add a Quote</a>
       <% } else { %>
       <a href="/auth/google">Login</a>
+      &nbsp
       <a href="/">Home</a>
+      &nbsp
       <% } %>
   </nav>
   <main>

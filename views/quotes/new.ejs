@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+<form action="/quotes" method="POST">
+    <label>* Quote:</label>
+    <textarea name="content" id="" cols="30" rows="10"></textarea>
+    <label>Genre: </label>
+    <input type="text">
+    <label>Author: </label>
+    <select name="" id="">
+        <option value="">Author Name</option>
+        <option value="">Other Name</option>
+    </select>
+    <label>Date: </label>
+    <input type="datetime-local">
+    <button type="submit">Submit</button>
+</form>
+<%- include('../partials/footer') %>
