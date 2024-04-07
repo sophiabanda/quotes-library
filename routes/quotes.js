@@ -5,9 +5,12 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET quotes
 router.get("/", ensureLoggedIn, quotesController.index);
-//NEW quote
+//NEW page to Create a quote
 router.get("/new", ensureLoggedIn, quotesController.new);
-// POST
+// POST Create functionality
 router.post("/", ensureLoggedIn, quotesController.create);
+// GET page to single quote to Edit
+router.get("/:id/edit", quotesController.edit);
+// PUT Edit functionality
 
 module.exports = router;

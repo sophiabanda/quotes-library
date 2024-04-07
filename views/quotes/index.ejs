@@ -1,12 +1,16 @@
 <%- include('../partials/header') %>
-<h3>Here live your created quotes</h3>
 
 <% quotes.forEach((quote) => { %>
-    <section style="border: 2px solid black">
-        <h4>"<%= quote.content %>"</h4>
-        <p>Created: <%= quote.createdDate.toLocaleString("en-US", {timeZone: "UTC"}) %></p>
-        <button>Edit</button>
-    </section>
-    <% }) %>
+    <% if(quote) { %>
+        <section style="border: 2px solid black">
+            <h4>"<%= quote.content %>"</h4>
+            <a href="/quotes/<%= quote._id %>/edit">Edit</a>
+        </section>
+    <% } else { %>
+        <section style="border: 2px solid black">
+            <h4>"<%= quote.content %>"</h4>
+            <a href="/quotes/<%= quote._id %>/edit">Edit</a>
+        </section>
+    <% }}) %>
     
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

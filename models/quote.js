@@ -7,10 +7,6 @@ const quoteSchema = new Schema({
         type: String,
         required: true
     },
-    createdDate: {
-        type: Date,
-        default: Date.now
-    },
     author: {
         type: Schema.Types.ObjectId, ref: 'Author'
     }

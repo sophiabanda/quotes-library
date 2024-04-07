@@ -3,13 +3,13 @@ const Quote = require("../models/quote");
 module.exports = {
     index,
     new: newQuote,
-    create
+    create,
+    edit
 }
 
 async function index(req, res) {
     const quotes = await Quote.find({});
-    console.log('quotes-->',quotes)
-    res.render("quotes/index", {title: "Welcome to your Quotes Page!", quotes});
+    res.render("quotes/index", {title: "My Quotes", quotes});
 }
 
 function newQuote(req, res) {
@@ -25,4 +25,11 @@ function create(req, res) {
         console.log('error -->', error)
     }
 }
+
+async function edit(req, res) {
+    const quote = await Quote.findOne({_id: req.params.id});
+
+    if (!quote) return res.redirect('/quotes');
+    res.render('quotes/edit', { title: 'Edit Quote', quote });
+  }
 
