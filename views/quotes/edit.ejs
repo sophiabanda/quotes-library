@@ -1,12 +1,15 @@
-<%- include('../partials/header') %>
+<%- include("../partials/header") %>
 
-<form action="" method="POST">
+<form action="/quotes/<%= quote._id %>?_method=PUT" method="POST">
     <label>Update content:</label>
     <textarea name="content" placeholder="<%= quote.content %>" cols="20" rows="5"></textarea>
     <label for="">Add Author</label>
     <select name="author" id="">
-        <option value="">Name Name</option>
+    <% authors.forEach((author) => { %>
+        <option value="<%= author._id %>"><%= author.name %></option>
+    <% }) %>
     </select>
+    <button type="submit">Update</button>
 </form>
 <p>Created: <%= quote.createdAt.toLocaleString("en-US", {timeZone: "UTC"}) %></p>
 <p>Updated: <%= quote.updatedAt.toLocaleString("en-US", {timeZone: "UTC"}) %></p>
@@ -15,4 +18,4 @@
     <button type="submit">Delete Quote</button>
 </form>
 
-<%- include('../partials/footer') %>
+<%- include("../partials/footer") %>

@@ -4,8 +4,8 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const methodOverride = require("method-override");
-const session = require('express-session');
-const passport = require('passport');
+const session = require("express-session");
+const passport = require("passport");
 
 require("dotenv").config();
 require("./config/database");

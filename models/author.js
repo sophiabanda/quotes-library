@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const authorSchema = new Schema({
@@ -8,11 +8,11 @@ const authorSchema = new Schema({
     },
     authoredQuotes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Quote'
+        ref: "Quote"
     }],
     birthDate: Date,
     bio: String,
     url: String,
 }, {timestamps: true});
 
-module.exports = mongoose.model('Author', authorSchema);
+module.exports = mongoose.model("Author", authorSchema);

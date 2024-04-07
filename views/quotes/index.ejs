@@ -1,16 +1,23 @@
-<%- include('../partials/header') %>
+<%- include("../partials/header") %>
 
 <% quotes.forEach((quote) => { %>
-    <% if(quote) { %>
-        <section style="border: 2px solid black">
+    <% if(quotes) { %>
+        <section>
             <h4>"<%= quote.content %>"</h4>
             <a href="/quotes/<%= quote._id %>/edit">Edit</a>
         </section>
     <% } else { %>
-        <section style="border: 2px solid black">
-            <h4>"<%= quote.content %>"</h4>
-            <a href="/quotes/<%= quote._id %>/edit">Edit</a>
-        </section>
-    <% }}) %>
-    
-    <%- include('../partials/footer') %>
+        <% authors.forEach((author) => { %>
+            <section>
+                <h4>"<%= quote.content %>"</h4>
+                <a href="/quotes/<%= quote._id %>/edit">Edit</a>
+            </section>
+            <% }) %>
+    <% } %>
+<% }) %>   
+
+<h3><%= quotes[1].author%></h3>
+
+
+<%- include("../partials/footer") %>
+

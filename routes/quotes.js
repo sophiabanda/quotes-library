@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var quotesController = require('../controller/quotes');
+var quotesController = require("../controller/quotes");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET quotes
@@ -12,6 +12,7 @@ router.post("/", quotesController.create);
 // GET page to single quote to Edit
 router.get("/:id/edit", quotesController.edit);
 // PUT Edit functionality
+router.put("/:id", quotesController.update);
 // DELETE Delete functionality
 router.delete("/:id", quotesController.delete);
 module.exports = router;

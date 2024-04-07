@@ -1,11 +1,13 @@
 const Quote = require("../models/quote");
+const Author = require("../models/author");
 
 module.exports = {
     index,
     new: newQuote,
     create,
     edit,
-    delete: deleteQuote
+    delete: deleteQuote,
+    update
 }
 
 async function index(req, res) {
@@ -20,21 +22,35 @@ function newQuote(req, res) {
 function create(req, res) {
     try {
         Quote.create(req.body);
-        console.log('body-->', req.body);
         res.redirect("/quotes")
     } catch(error) {
-        console.log('error -->', error)
+        console.log("error -->", error)
     }
 }
 
 async function edit(req, res) {
+    const authors = await Author.find({});
     const quote = await Quote.findOne({_id: req.params.id});
-
-    if (!quote) return res.redirect('/quotes');
-    res.render('quotes/edit', { title: 'Edit Quote', quote });
+    if (!quote) return res.redirect("/quotes");
+    
+    res.render("quotes/edit", { title: "Edit Quote", quote, authors });
   }
 
   async function deleteQuote(req, res) {
+    // deleteOne expects an object for deletion
    await Quote.deleteOne({_id: req.params.id});
    res.redirect("/quotes");
   }
+
+async function update(req, res) {
+    try {
+        const updatedQuote = await Quote.findOneAndUpdate(
+            {_id: req.params.id},
+            req.body,
+            { new: true }
+        ).populate('author');
+        res.redirect("/quotes")
+    } catch(error) {
+        console.log("Error:", error)
+    }
+}

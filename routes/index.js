@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const passport = require('passport');
+const passport = require("passport");
 
 // GET Home Page
 router.get("/", function(req, res, next) {
@@ -8,26 +8,26 @@ router.get("/", function(req, res, next) {
 });
 
 // Google OAuth login route
-router.get('/auth/google', passport.authenticate(
-  'google',
+router.get("/auth/google", passport.authenticate(
+  "google",
   {
-    scope: ['profile', 'email'],
+    scope: ["profile", "email"],
   }
 ));
 
 // Google OAuth callback route
-router.get('/oauth2callback', passport.authenticate(
-  'google',
+router.get("/oauth2callback", passport.authenticate(
+  "google",
   {
-    successRedirect: '/quotes',
-    failureRedirect: '/quotes'
+    successRedirect: "/quotes",
+    failureRedirect: "/quotes"
   }
 ));
 
 // OAuth logout route
-router.get('/logout', function(req, res){
+router.get("/logout", function(req, res){
   req.logout(function() {
-    res.redirect('/quotes');
+    res.redirect("/quotes");
   });
 });
 
