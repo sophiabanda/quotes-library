@@ -1,6 +1,7 @@
 <%- include("../partials/header") %>
-
+ 
 <% quotes.forEach((quote) => { %>
+    <h3><%= quote %></h3>
     <% if(quotes) { %>
         <section>
             <h4>"<%= quote.content %>"</h4>
@@ -14,10 +15,6 @@
             </section>
             <% }) %>
     <% } %>
-<% }) %>   
-
-<h3><%= quotes[1].author%></h3>
-
+<% }) %>  
 
 <%- include("../partials/footer") %>
-
