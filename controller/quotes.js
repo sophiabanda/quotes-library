@@ -4,7 +4,8 @@ module.exports = {
     index,
     new: newQuote,
     create,
-    edit
+    edit,
+    delete: deleteQuote
 }
 
 async function index(req, res) {
@@ -33,3 +34,7 @@ async function edit(req, res) {
     res.render('quotes/edit', { title: 'Edit Quote', quote });
   }
 
+  async function deleteQuote(req, res) {
+   await Quote.deleteOne({_id: req.params.id});
+   res.redirect("/quotes");
+  }

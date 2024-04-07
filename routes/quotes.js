@@ -4,13 +4,14 @@ var quotesController = require('../controller/quotes');
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET quotes
-router.get("/", ensureLoggedIn, quotesController.index);
+router.get("/", quotesController.index);
 //NEW page to Create a quote
-router.get("/new", ensureLoggedIn, quotesController.new);
+router.get("/new", quotesController.new);
 // POST Create functionality
-router.post("/", ensureLoggedIn, quotesController.create);
+router.post("/", quotesController.create);
 // GET page to single quote to Edit
 router.get("/:id/edit", quotesController.edit);
 // PUT Edit functionality
-
+// DELETE Delete functionality
+router.delete("/:id", quotesController.delete);
 module.exports = router;
