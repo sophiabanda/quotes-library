@@ -11,6 +11,9 @@ const quoteSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    author: {
+        type: Schema.Types.ObjectId, ref: 'Author'
+    }
 }, {timestamps: true});
 
 // Compile the schema into a model, export
