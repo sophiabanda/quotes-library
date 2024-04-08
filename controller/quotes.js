@@ -11,8 +11,13 @@ module.exports = {
 }
 
 async function index(req, res) {
-    const quotes = await Quote.find({});
-    res.render("quotes/index", {title: "My Quotes", quotes});
+    try {
+        const quotes = await Quote.find({});
+        res.render("quotes/index", { title: "My Quotes", quotes });
+    } catch (error) {
+        console.log("error-->:", error);
+        res.redirect("/quotes");
+    }
 }
 
 function newQuote(req, res) {
@@ -44,12 +49,13 @@ async function edit(req, res) {
 
 async function update(req, res) {
     try {
-        const updatedQuote = await Quote.findOneAndUpdate(
+        const quote = await Quote.findOneAndUpdate(
             {_id: req.params.id},
             req.body,
             { new: true }
         ).populate('author');
-        res.redirect("/quotes")
+        res.redirect("/quotes");
+        console.log('author?-->', quote.author)
     } catch(error) {
         console.log("Error:", error)
     }
