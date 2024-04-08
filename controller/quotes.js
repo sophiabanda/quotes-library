@@ -12,7 +12,7 @@ module.exports = {
 
 async function index(req, res) {
     try {
-        const quotes = await Quote.find({});
+        const quotes = await Quote.find({}).populate('author')
         res.render("quotes/index", { title: "My Quotes", quotes });
     } catch (error) {
         console.log("error-->:", error);
@@ -55,7 +55,8 @@ async function update(req, res) {
             { new: true }
         ).populate('author');
         res.redirect("/quotes");
-        console.log('author?-->', quote.author)
+        quote.save();
+        console.log('author?-->', quote.author.name);
     } catch(error) {
         console.log("Error:", error)
     }

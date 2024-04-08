@@ -15,4 +15,5 @@ router.get("/:id/edit", ensureLoggedIn, quotesController.edit);
 router.put("/:id", ensureLoggedIn, quotesController.update);
 // DELETE Delete functionality
 router.delete("/:id", ensureLoggedIn, quotesController.delete);
+
 module.exports = router;
