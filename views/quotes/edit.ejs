@@ -3,7 +3,7 @@
 <form action="/quotes/<%= quote._id %>?_method=PUT" method="POST">
     <label>Update content:</label>
     <textarea name="content" placeholder="<%= quote.content %>" cols="20" rows="5"></textarea>
-    <label for="">Add Author</label>
+    <label>Add Author</label>
     <select name="author" id="">
     <% authors.forEach((author) => { %>
         <option value="<%= author._id %>"><%= author.name %></option>

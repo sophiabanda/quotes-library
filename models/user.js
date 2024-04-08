@@ -11,6 +11,10 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Quote"
     }],
+    favoriteAuthors: [{
+      type: Schema.Types.ObjectId,
+      ref: "Author"
+    }],
     email: String,
     avatar: String
   },{

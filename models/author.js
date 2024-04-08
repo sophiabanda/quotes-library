@@ -13,6 +13,6 @@ const authorSchema = new Schema({
     birthDate: Date,
     bio: String,
     url: String,
-}, {timestamps: true});
+}, { timestamps: true });
 
 module.exports = mongoose.model("Author", authorSchema);

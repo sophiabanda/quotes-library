@@ -4,7 +4,7 @@ const passport = require("passport");
 
 // GET Home Page
 router.get("/", function(req, res, next) {
-  res.render("index", { title: "Quote Library" });
+  res.render("index", { title: "Quote of the Day" });
 });
 
 // Google OAuth login route

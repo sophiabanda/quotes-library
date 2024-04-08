@@ -47,16 +47,18 @@ async function edit(req, res) {
    res.redirect("/quotes");
   }
 
-async function update(req, res) {
+  async function update(req, res) {
     try {
-        const quote = await Quote.findOneAndUpdate(
+        let updates = {};
+        if(req.body.content) updates.content = req.body.content;
+        if(req.body.author) updates.author = req.body.author;
+        updates = { $set: updates };
+        await Quote.findOneAndUpdate(
             {_id: req.params.id},
-            req.body,
+            updates,
             { new: true }
         ).populate('author');
         res.redirect("/quotes");
-        quote.save();
-        console.log('author?-->', quote.author.name);
     } catch(error) {
         console.log("Error:", error)
     }
