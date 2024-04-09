@@ -6,7 +6,8 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
+    delete: deleteAuthor
 }
 
 async function show(req, res) {
@@ -51,5 +52,14 @@ async function edit(req, res) {
     } catch(error) {
         console.log("error -->", error)
 
+    }
+  }
+
+  async function deleteAuthor(req, res) {
+    try {
+        await Author.deleteOne({ _id: req.params.id });
+        res.redirect("/authors")
+    } catch(error) {
+        console.log("error-->", error);
     }
   }

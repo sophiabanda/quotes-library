@@ -42,6 +42,11 @@ async function edit(req, res) {
   }
 
   async function deleteQuote(req, res) {
+    try {
+
+    } catch(error) {
+        
+    }
     // deleteOne expects an object for deletion
    await Quote.deleteOne({_id: req.params.id});
    res.redirect("/quotes");

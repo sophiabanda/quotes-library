@@ -11,7 +11,7 @@
     <input placeholder="<%= author.url %>" type="text" name="url" placeholder="<%= author.url %>">
     <button type="submit">Update</button>
 </form>
-<form action="?_method=DELETE" method="POST">
+<form action="/authors/<%= author._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete Author</button>
 </form>
 

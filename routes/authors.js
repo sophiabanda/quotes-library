@@ -13,6 +13,8 @@ router.post("/", ensureLoggedIn, authorsController.create);
 router.get("/:id/edit", ensureLoggedIn, authorsController.edit);
 //PUT functionality to Edit Author
 router.put("/:id", ensureLoggedIn, authorsController.update);
+//DELETE Author
+router.delete("/:id", authorsController.delete);
 
 
 module.exports = router;
