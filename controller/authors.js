@@ -4,7 +4,9 @@ const Author = require("../models/author");
 module.exports = {
     new: newAuthor,
     create,
-    show
+    show,
+    edit,
+    update
 }
 
 async function show(req, res) {
@@ -16,12 +18,36 @@ function newAuthor(req, res) {
     res.render("authors/new", { title: "Add Author" })
 }
 
-async function create(req, res) {
+function create(req, res) {
     try {
-        const author = await Author.create(req.body);
-        console.log("author-->", author);
-        res.redirect("authors");
+        Author.create(req.body);
+        res.redirect("/authors")
     } catch(error) {
-        console.log('error-->', error)
+        console.log("error -->", error)
     }
 }
+
+async function edit(req, res) {
+    const author = await Author.findOne({ _id: req.params.id });
+    if (!author) return res.redirect("/authors");
+    res.render("authors/edit", { title: `Edit ${author.name}`, author });
+  }
+
+  async function update(req, res) {
+    try {
+        let updates = {};
+        if(req.body.name) updates.name = req.body.name;
+        if(req.body.birthDate) updates.birthDate = req.body.birthDate;
+        if(req.body.bio) updates.bio = req.body.bio;
+        if(req.body.url) updates.url = req.body.url;
+        updates = { $set: updates};
+        await Author.findOneAndUpdate(
+            { _id: req.params.id },
+            updates,
+            { new: true }
+        ).populate('quotes');
+    } catch(error) {
+        console.log("error -->", error)
+
+    }
+  }

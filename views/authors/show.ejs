@@ -1,7 +1,7 @@
 <%- include("../partials/header") %>
 
 <% authors.forEach((author) => { %>
-    <a style="cursor: pointer;" href="">
+    <a style="cursor: pointer;" href="/authors/<%= author.id %>/edit">
         <section style="background-color:antiquewhite;">
             <h2><%= author.name %></h2>
             <p><%= author.bio %></p>

@@ -11,6 +11,8 @@ router.get("/new", ensureLoggedIn, authorsController.new);
 router.post("/", ensureLoggedIn, authorsController.create);
 //GET page to Edit an Author
 router.get("/:id/edit", ensureLoggedIn, authorsController.edit);
+//PUT functionality to Edit Author
+router.put("/:id", ensureLoggedIn, authorsController.update);
 
 
 module.exports = router;

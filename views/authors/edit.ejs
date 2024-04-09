@@ -1,6 +1,19 @@
 <%- include("../partials/header") %>
 
-
+<form action="/authors/<%= author._id %>?_method=PUT" method="POST">
+    <label>Name: </label>
+    <input placeholder="<%= author.name %>" name="name" type="text">
+    <label>Birthdate: <%= author.birthDate?.toLocaleString("en-US", { year:"numeric", month:"short", day:"numeric" }) %></label>
+    <input name="birthDate" type="date">
+    <label>Bio: </label>
+    <textarea placeholder="<%= author.bio %>" name="bio" cols="15" rows="5"></textarea>
+    <label>URL: </label>
+    <input placeholder="<%= author.url %>" type="text" name="url" placeholder="<%= author.url %>">
+    <button type="submit">Update</button>
+</form>
+<form action="?_method=DELETE" method="POST">
+    <button type="submit">Delete Author</button>
+</form>
 
 <%- include("../partials/footer") %>
 

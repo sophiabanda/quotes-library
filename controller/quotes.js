@@ -35,7 +35,7 @@ function create(req, res) {
 
 async function edit(req, res) {
     const authors = await Author.find({});
-    const quote = await Quote.findOne({_id: req.params.id});
+    const quote = await Quote.findOne({ _id: req.params.id });
     if (!quote) return res.redirect("/quotes");
     
     res.render("quotes/edit", { title: "Edit Quote", quote, authors });
@@ -54,7 +54,7 @@ async function edit(req, res) {
         if(req.body.author) updates.author = req.body.author;
         updates = { $set: updates };
         await Quote.findOneAndUpdate(
-            {_id: req.params.id},
+            { _id: req.params.id },
             updates,
             { new: true }
         ).populate('author');
