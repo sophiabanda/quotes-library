@@ -30,10 +30,11 @@ function create(req, res) {
 async function edit(req, res) {
     const author = await Author.findOne({ _id: req.params.id });
     if (!author) return res.redirect("/authors");
-    res.render("authors/edit", { title: `Edit ${author.name}`, author });
+    res.render("authors/edit", { title: `Edit ${ author.name }`, author });
   }
 
   async function update(req, res) {
+    console.log('reqbody-->', req.body)
     try {
         let updates = {};
         if(req.body.name) updates.name = req.body.name;
@@ -45,7 +46,8 @@ async function edit(req, res) {
             { _id: req.params.id },
             updates,
             { new: true }
-        ).populate('quotes');
+        );
+        res.redirect("/authors");
     } catch(error) {
         console.log("error -->", error)
 

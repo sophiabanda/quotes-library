@@ -57,7 +57,7 @@ async function edit(req, res) {
             { _id: req.params.id },
             updates,
             { new: true }
-        ).populate('author');
+        ).populate("author");
         res.redirect("/quotes");
     } catch(error) {
         console.log("Error:", error)

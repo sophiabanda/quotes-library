@@ -14,6 +14,7 @@
 <body>
   <nav>
     <% if(user) { %>
+      <h1><%= user %></h1>
       <a href="/logout"><img id="user-avatar"src="<%= user.avatar %>" alt="user avatar">&nbsp;Logout</a>
       &nbsp
       <a href="/">Home</a>
