@@ -7,8 +7,6 @@ const Quote = require("../models/quote");
 // GET Home Page
 router.get("/", async function(req, res, next) {
   const quote =  await Quote.aggregate([{$sample: {size:1}}]);
-  console.log('mapped-->',quote.map((q) => q.content))
-  console.log('quote-->', quote)
   res.render("index", { title: "Quote of the Moment", quote: quote[0] });
 });
 
@@ -32,7 +30,7 @@ router.get("/oauth2callback", passport.authenticate(
 // OAuth logout route
 router.get("/logout", function(req, res){
   req.logout(function() { 
-    res.redirect("/quotes");
+    res.redirect("/");
   });
 });
 

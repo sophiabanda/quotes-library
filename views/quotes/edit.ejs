@@ -1,21 +1,26 @@
 <%- include("../partials/header") %>
 
+
+<h3><%= authors %></h3>
 <form action="/quotes/<%= quote._id %>?_method=PUT" method="POST">
     <label>Update content:</label>
     <textarea name="content" placeholder="<%= quote.content %>" cols="20" rows="5"></textarea>
     <label>Add Author</label>
-    <select name="author" id="">
-    <% authors.forEach((author) => { %>
-        <option value="<%= author._id %>"><%= author.name %></option>
-    <% }) %>
+    <select name="author">
+        <option disabled value="none">Choose an author</option>
+        <% authors.forEach((author) => { %>
+            <% if(quote.author && author.name && quote.author.name === author.name) { %>
+                <option selected disabled value="<%= quote.author._id %>"><%= quote.author.name %></option>
+            <% } else { %>
+                <option value="<%= author._id %>"><%= author.name %></option>
+            <% } %>
+        <% }) %>
     </select>
     <button type="submit">Update</button>
 </form>
-<p>Created: <%= quote.createdAt.toLocaleString("en-US", {timeZone: "UTC"}) %></p>
-<p>Updated: <%= quote.updatedAt.toLocaleString("en-US", {timeZone: "UTC"}) %></p>
-
 <form action="/quotes/<%= quote._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete Quote</button>
 </form>
 
 <%- include("../partials/footer") %>
+

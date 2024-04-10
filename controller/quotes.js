@@ -35,7 +35,7 @@ function create(req, res) {
 
 async function edit(req, res) {
     const authors = await Author.find({});
-    const quote = await Quote.findOne({ _id: req.params.id });
+    const quote = await Quote.findOne({ _id: req.params.id }).populate('author');
     if (!quote) return res.redirect("/quotes");
     
     res.render("quotes/edit", { title: "Edit Quote", quote, authors });

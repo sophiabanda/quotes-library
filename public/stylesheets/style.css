@@ -1,23 +1,24 @@
 body {
   padding: 50px;
-  border: 2px dotted green;
   font-family: "Work Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
-}
-
-nav {
-  border: 2px solid green;
-  padding: 50px;
-  justify-content: center;
+  background-color: rgb(11, 11, 11);
+  color: white;
 }
 
 a {
-  color: #00B7FF;
-  font-size: 2vh;
+  color: white;
   text-decoration: none;
-  background-color: lightgoldenrodyellow;
+}
+
+section {
+  background-color: rgb(244, 142, 131);
+}
+
+input {
+  border-radius: 15px;
 }
 
 #user-avatar {
@@ -25,7 +26,4 @@ a {
   height: 8vh;
 }
 
-button {
-  background-color: salmon;
-}
 

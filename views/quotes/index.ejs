@@ -2,16 +2,18 @@
 
 <% quotes.forEach((quote) => { %>
     <% if(quote.author) { %>
-        <section style="background-color:antiquewhite;">
-            <h2>"<%= quote.content %>"</h2>
-            <h5>Author: <%= quote.author.name %></h5>
-            <a href="/quotes/<%= quote._id %>/edit">Edit</a>
-        </section>
+        <a href="/quotes/<%= quote._id %>/edit">
+            <section>
+                <h2>"<%= quote.content %>"</h2>
+                <h5>Author: <%= quote.author.name %></h5>
+            </section>
+        </a>
     <% } else { %>
-        <section style="background-color:antiquewhite;">
-            <h2>"<%= quote.content %>"</h2>
-            <a href="/quotes/<%= quote._id %>/edit">Edit</a>
-        </section>
+        <a href="/quotes/<%= quote._id %>/edit">
+            <section>
+                <h2>"<%= quote.content %>"</h2>
+            </section>
+        </a>
     <% } %>
 <% }) %>
 
