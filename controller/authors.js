@@ -24,7 +24,7 @@ function create(req, res) {
         Author.create(req.body);
         res.redirect("/authors")
     } catch(error) {
-        console.log("error -->", error)
+        console.log("error -->", error);
     }
 }
 
@@ -36,7 +36,6 @@ async function edit(req, res) {
   }
 
   async function update(req, res) {
-    console.log('reqbody-->', req.body);
     try {
         let updates = {};
         if (req.body.name) updates.name = req.body.name;
@@ -48,12 +47,11 @@ async function edit(req, res) {
             updates.authoredQuotes = req.body.authoredQuotes.split(',');
         }
         updates = { $set: updates };
-        let author = await Author.findOneAndUpdate(
+        await Author.findOneAndUpdate(
             { _id: req.params.id },
             updates,
             { new: true }
         ).populate('authoredQuotes');
-        console.log('author-->', author);
         res.redirect("/authors");
     } catch(error) {
         console.log("error -->", error);

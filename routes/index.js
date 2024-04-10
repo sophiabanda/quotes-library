@@ -6,8 +6,16 @@ const Quote = require("../models/quote");
 
 // GET Home Page
 router.get("/", async function(req, res, next) {
-  const quote =  await Quote.aggregate([{$sample: {size:1}}]);
-  res.render("index", { title: "Quote of the Moment", quote: quote[0] });
+  let quotes = await Quote.find({});
+  let quote;
+  let j;
+  for (let i = quotes.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    [quotes[i], quotes[j]] = [quotes[j], quotes[i]];
+    quote = quotes[0]
+    console.log(quotes[0]); 
+  }
+  res.render("index", { title: "Quote of the Moment", quote });
 });
 
 // Google OAuth login route

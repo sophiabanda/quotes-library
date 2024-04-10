@@ -4,21 +4,6 @@ body {
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
-  background-color: rgb(11, 11, 11);
-  color: white;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-section {
-  background-color: rgb(244, 142, 131);
-}
-
-input {
-  border-radius: 15px;
 }
 
 #user-avatar {

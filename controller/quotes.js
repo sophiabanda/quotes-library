@@ -8,6 +8,7 @@ module.exports = {
     edit,
     delete: deleteQuote,
     update
+    
 }
 
 async function index(req, res) {
