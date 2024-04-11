@@ -16,7 +16,7 @@ async function show(req, res) {
 }
 
 function newAuthor(req, res) {
-    res.render("authors/new", { title: "Add Author" })
+    res.render("authors/new", { title: "Add an Author" })
 }
 
 function create(req, res) {

@@ -6,7 +6,7 @@ const Quote = require("../models/quote");
 
 // GET Home Page
 router.get("/", async function(req, res, next) {
-  let quotes = await Quote.find({});
+  let quotes = await Quote.find({}).populate("author");
   let quote;
   let j;
   for (let i = quotes.length - 1; i > 0; i--) {

@@ -2,11 +2,12 @@
 
 <% quotes.forEach((quote) => { %>
     <% if(quote.author) { %>
-        <a href="/quotes/<%= quote._id %>/edit">
-            <section>
-                <h2>"<%= quote.content %>"</h2>
-                <h5>Author: <%= quote.author.name %></h5>
-            </section>
+        <a class="col" href="/quotes/<%= quote._id %>/edit">
+            <div class="card border-light mb-3" style="max-width: 20rem; margin-top: 20vh;">
+            <div class="card-body">
+                <h4 class="card-title">"<%= quote.content %>"</h4>
+                <p class="card-text">Author: <%= quote.author.name %></p>
+            </div>
         </a>
     <% } else { %>
         <a href="/quotes/<%= quote._id %>/edit">
@@ -16,6 +17,7 @@
         </a>
     <% } %>
 <% }) %>
+
 
 <%- include("../partials/footer") %>
 

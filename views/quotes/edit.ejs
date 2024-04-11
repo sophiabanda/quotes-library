@@ -1,7 +1,5 @@
 <%- include("../partials/header") %>
 
-
-<h3><%= authors %></h3>
 <form action="/quotes/<%= quote._id %>?_method=PUT" method="POST">
     <label>Update content:</label>
     <textarea name="content" placeholder="<%= quote.content %>" cols="20" rows="5"></textarea>

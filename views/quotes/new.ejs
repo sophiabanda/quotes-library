@@ -1,7 +1,14 @@
 <%- include("../partials/header") %>
-<form action="/quotes" method="POST">
-    <p>Note: Quotation marks will be added automatically, no need to add them here :)</p>
-    <textarea name="content" id="" cols="30" rows="5"></textarea>
-    <button type="submit">Submit</button>
-</form>
+
+<form style="margin-top: 10vh;" action="/quotes" method="POST">
+    <fieldset>
+      <div>
+        <label class="form-label mt-4">Add your quote here --quotation marks will be included, no need to add them 😊</label>
+        <textarea name="content" class="form-control" rows="3"></textarea>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+  </form>
+
 <%- include("../partials/footer") %>
