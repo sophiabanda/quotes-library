@@ -12542,7 +12542,8 @@ a {
 
 #user-avatar {
   border-radius: 50%;
-  max-width: 3.5vw
+  max-height: 40px;
+  max-width: 40px;
 }
 
 .nav > a {

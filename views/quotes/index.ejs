@@ -1,23 +1,21 @@
 <%- include("../partials/header") %>
 
-<% quotes.forEach((quote) => { %>
-    <% if(quote.author) { %>
-        <a class="col" href="/quotes/<%= quote._id %>/edit">
-            <div class="card border-light mb-3" style="max-width: 20rem; margin-top: 20vh;">
-            <div class="card-body">
-                <h4 class="card-title">"<%= quote.content %>"</h4>
-                <p class="card-text">Author: <%= quote.author.name %></p>
+<div style="margin-top: 15vh;" class="container">
+    <div class="row">
+        <% quotes.forEach((quote) => { %>
+            <div style="align-content: center;" class="col-sm-6">
+                <a href="/quotes/<%= quote._id %>/edit">
+                    <div class="card border-light" >
+                        <div style="padding: 50px;" class="card-body">
+                            <h2 class="card-title">"<%= quote.content %>"</h2>
+                            <p class="card-text">Author: <%= quote.author.name %></p>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
-    <% } else { %>
-        <a href="/quotes/<%= quote._id %>/edit">
-            <section>
-                <h2>"<%= quote.content %>"</h2>
-            </section>
-        </a>
-    <% } %>
-<% }) %>
-
+        <% }) %>
+    </div>
+</div>
 
 <%- include("../partials/footer") %>
 
