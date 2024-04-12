@@ -42,4 +42,17 @@ router.get("/logout", function(req, res){
   });
 });
 
+
+// Route to handle form submissions
+router.get('/search', (req, res) => {
+  // Extract the query parameter from the request
+  const searchQuery = req.query.q;
+
+  // Call your function with the search query as an argument
+  yourFunction(searchQuery);
+
+  // Render a view with the search query (modify this according to your application's needs)
+  res.render('searchResults', { searchQuery });
+});
+
 module.exports = router;

@@ -12,7 +12,7 @@
 </head>
 <nav class="navbar navbar-light bg-primary fixed-top" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><%= title %></a>
+    <a class="navbar-brand" href="#"><%= title %></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,8 +49,8 @@
               <a class="nav-link" href="/logout">Logout&nbsp;&nbsp;<img id="user-avatar"src="<%= user.avatar %>" alt="user avatar">&nbsp;&nbsp;<%= user.email %></a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search Quotes Database" aria-label="Search">
+          <form action="/search" class="d-flex" id="searchForm">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search Quotes Database" name="q" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
           <% } else { %>
