@@ -26,16 +26,15 @@
                     <% quotes.forEach((quote) => { %>
                         <option><%= quote.content %> </option>
                     <% }) %>
-            
                 </select>
               </div>
             <br>
             <button style="margin-right: 10px;"class="btn btn-primary" type="submit">Update Author</button>
-            <form action="/authors/<%= author._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-danger" type="submit">Delete Author</button>
-            </form>
-        </div><br><br>
+        </div><br>
     </fieldset>
+</form>
+<form action="/authors/<%= author._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-danger" type="submit">Delete Author</button>
 </form>
 
 <%- include("../partials/footer") %>

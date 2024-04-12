@@ -3,16 +3,28 @@
 <div style="margin-top: 15vh;" class="container">
     <div class="row">
         <% quotes.forEach((quote) => { %>
-            <div style="align-content: center;" class="col-sm-6">
-                <a href="/quotes/<%= quote._id %>/edit">
-                    <div class="card border-light" >
-                        <div style="padding: 50px;" class="card-body">
-                            <h2 class="card-title">"<%= quote.content %>"</h2>
-                            <p class="card-text">Author: <%= quote.author.name %></p>
+            <% if(quote.author) { %>
+                <div style="align-content: center;" class="col-sm-6">
+                    <a href="/quotes/<%= quote._id %>/edit">
+                        <div class="card border-light" >
+                            <div style="padding: 50px;" class="card-body">
+                                <h2 class="card-title">"<%= quote.content %>"</h2>
+                                <p class="card-text">Author: <%= quote.author.name %></p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <% } else { %>
+                <div style="align-content: center;" class="col-sm-6">
+                    <a href="/quotes/<%= quote._id %>/edit">
+                        <div class="card border-light" >
+                            <div style="padding: 50px;" class="card-body">
+                                <h2 class="card-title">"<%= quote.content %>"</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
         <% }) %>
     </div>
 </div>

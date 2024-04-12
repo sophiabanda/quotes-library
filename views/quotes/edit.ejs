@@ -1,24 +1,31 @@
 <%- include("../partials/header") %>
 
-<form action="/quotes/<%= quote._id %>?_method=PUT" method="POST">
-    <label>Update content:</label>
-    <textarea name="content" placeholder="<%= quote.content %>" cols="20" rows="5"></textarea>
-    <label>Add Author</label>
-    <select name="author">
-        <option disabled value="none">Choose an author</option>
-        <% authors.forEach((author) => { %>
-            <% if(quote.author && author.name && quote.author.name === author.name) { %>
-                <option selected disabled value="<%= quote.author._id %>"><%= quote.author.name %></option>
-            <% } else { %>
-                <option value="<%= author._id %>"><%= author.name %></option>
-            <% } %>
-        <% }) %>
-    </select>
-    <button type="submit">Update</button>
-</form>
+<div style="margin-top: 10vh;">
+    <form  action="/quotes/<%= quote._id %>?_method=PUT" method="POST">
+        <fieldset>
+          <div>
+            <label for="exampleTextarea" class="form-label mt-4">Update Content:</label>
+            <textarea name="content" class="form-control" placeholder="<%= quote.content %>" rows="3" spellcheck="false"></textarea>
+          </div>
+        <div>
+          <label for="exampleSelect1" class="form-label mt-4">Add Author:</label>
+          <select class="form-select" name="author">
+              <option selected disabled value="none">Choose an author</option>
+                <% authors.forEach((author) => { %>
+                  <% if(quote.author && author.name && quote.author.name === author.name) { %>
+                      <option selected disabled value="<%= quote.author._id %>"><%= quote.author.name %></option>
+                  <% } else { %>
+                      <option value="<%= author._id %>"><%= author.name %></option>
+                  <% } %>
+              <% }) %>
+          </select>
+        </div><br>
+        <button style="margin-right:10px;" type="submit" class="btn btn-primary">Update</button>
+    </fieldset>
+</form><br>
 <form action="/quotes/<%= quote._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Quote</button>
+    <button class="btn btn-danger" type="submit">Delete Quote</button>
 </form>
+</div>
 
 <%- include("../partials/footer") %>
-
