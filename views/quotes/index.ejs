@@ -1,6 +1,10 @@
 <%- include("../partials/header") %>
-
 <div style="margin-top: 15vh;" class="container">
+    <div>
+        <a class="dropdown-item" href="/quotes/new">
+            <button style="margin-right: 10px;"class="btn btn-primary" type="submit">Add a Quote</button>
+        </a>
+    </div>
     <div class="row">
         <% quotes.forEach((quote) => { %>
             <% if(quote.author) { %>

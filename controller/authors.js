@@ -43,15 +43,15 @@ async function edit(req, res) {
         if (req.body.bio) updates.bio = req.body.bio;
         if (req.body.url) updates.url = req.body.url;
         if (req.body.authoredQuotes) {
-            // Authored quotes expects an array of objects
-            updates.authoredQuotes = req.body.authoredQuotes.split(',');
+            updates.authoredQuotes = req.body.authoredQuotes;
         }
         updates = { $set: updates };
-        await Author.findOneAndUpdate(
+        const author = await Author.findOneAndUpdate(
             { _id: req.params.id },
             updates,
             { new: true }
         ).populate('authoredQuotes');
+        console.log('update?-->', author)
         res.redirect("/authors");
     } catch(error) {
         console.log("error -->", error);

@@ -10,7 +10,7 @@
           <span class="badge bg-primary rounded-pill"><%= author.authoredQuotes.length %></span>
         </li>
       </a>&nbsp;&nbsp;
-    <% } else if (author.name !== "Unknown" && author.authoredQuotes.length > 3 && author.bio) { %>
+    <% } else if (author.name !== "Unknown" && author.authoredQuotes.length && author.bio) { %>
       <a style="cursor: pointer;" href="/authors/<%= author.id %>/edit">
         <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
           <h2><%= author.name %></h2>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -29,10 +29,16 @@
       <a style="cursor: pointer;" href="/authors/<%= author.id %>/edit">
         <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
           <h2><%= author.name %></h2>&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="badge bg-primary rounded-pill"><%= author.authoredQuotes.length %> </span>
         </li>
       </a>&nbsp;&nbsp;
     <% } %>
   <% }) %>
 </ul>
+<div style="justify-content: center; align-items: center;">
+  <a class="dropdown-item" href="/authors/new">
+    <button style="margin-right: 10px;"class="btn btn-primary" type="submit">Add an Author</button>
+  </a>
+</div>
 
 <%- include("../partials/footer") %>
