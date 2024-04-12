@@ -21,7 +21,7 @@
               </div>
               <div>
                 <label for="exampleSelect2" class="form-label mt-4">Example multiple select</label>
-                <select multiple="authoredQuotes" class="form-select" id="exampleSelect2">
+                <select name="authoredQuotes" multiple="authoredQuotes" class="form-select" id="exampleSelect2">
                     <option selected disabled value="none">Select Associated Quote</option>
                     <% quotes.forEach((quote) => { %>
                         <option value="<%= quote._id %>"><%= quote.content %> </option>
