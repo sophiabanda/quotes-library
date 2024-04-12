@@ -20,8 +20,8 @@
                   <input style="height: 30px;" name="birthDate" type="date">
               </div>
               <div>
-                <labelclass="form-label mt-4">Add Authored Quote</label>
-                <select name="authoredQuotes" class="form-select">
+                <label for="exampleSelect2" class="form-label mt-4">Example multiple select</label>
+                <select multiple="authoredQuotes" class="form-select" id="exampleSelect2">
                     <option selected disabled value="none">Select Associated Quote</option>
                     <% quotes.forEach((quote) => { %>
                         <option value="<%= quote._id %>"><%= quote.content %> </option>
@@ -33,9 +33,11 @@
         <button style="margin-right: 10px;"class="btn btn-primary" type="submit">Update Author</button>
     </fieldset>
 </form>
-<form action="/authors/<%= author._id %>?_method=DELETE" method="POST">
-    <button class="btn btn-danger" type="submit">Delete Author</button>
-</form>
+<div style="margin-top: 10px;">
+    <form action="/authors/<%= author._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger" type="submit">Delete Author</button>
+    </form>
+</div>
 
 <%- include("../partials/footer") %>
 
