@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const Quote = require("../models/quote");
+const Author = require("../models/author");
 
 
 // GET Home Page
@@ -44,15 +45,30 @@ router.get("/logout", function(req, res){
 
 
 // Route to handle form submissions
-router.get('/search', (req, res) => {
-  // Extract the query parameter from the request
-  const searchQuery = req.query.q;
+router.get('/search', async (req, res) => {
+  try {
+    // Extract the query parameter from the request
+    const searchQuery = req.query.q;
 
-  // Call your function with the search query as an argument
-  yourFunction(searchQuery);
+    // Search for authors
+    const authors = await Author.find({
+      $or: [
+        { name: { $regex: searchQuery, $options: 'i' } },
+        { bio: { $regex: searchQuery, $options: 'i' } }
+      ]
+    });
 
-  // Render a view with the search query (modify this according to your application's needs)
-  res.render('searchResults', { searchQuery });
+    // Search for quotes
+    const quotes = await Quote.find({
+      content: { $regex: searchQuery, $options: 'i' }
+    }).populate('author');
+
+    res.json({ authors, quotes });
+  } catch (error) {
+    console.error('Error searching:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
+
 
 module.exports = router;
