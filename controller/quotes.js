@@ -8,14 +8,25 @@ module.exports = {
     create,
     edit,
     delete: deleteQuote,
-    update
-    
+    update,
+    show 
+}
+
+async function show(req, res) {
+    try {
+        const quotes = await Quote.find({}).populate('author')
+        res.render('quotes/show', { title: 'My Quotes', quotes });
+    } catch (error) {
+        res.render('error', { message: error.message, error: error });
+
+        res.redirect('/quotes');
+    }
 }
 
 async function index(req, res) {
     try {
         const quotes = await Quote.find({}).populate('author')
-        res.render('quotes/index', { title: 'My Quotes', quotes });
+        res.render('quotes/index', { title: 'All Quotes', quotes });
     } catch (error) {
         res.render('error', { message: error.message, error: error });
 
@@ -25,7 +36,7 @@ async function index(req, res) {
 
 async function newQuote(req, res) {
     try {
-        const user = await User.find({})
+        const user = await User.find({});
         res.render('quotes/new', { title: 'Add a new Quote', user });
     } catch (error) {
         res.render('error', { message: error.message, error: error });
@@ -33,6 +44,7 @@ async function newQuote(req, res) {
 }
 
 async function create(req, res) {
+    const userId = req.user._id;
     try {
         const quote = await Quote.create(req.body);
         quote.userId = userId;
@@ -53,22 +65,24 @@ async function edit(req, res) {
 }
 
 async function deleteQuote(req, res) {
+    const superUser = "66107f31aaefc9ca74a8cf62";
     const userId = req.user._id;
     try {
         const quote = await Quote.findById(req.params.id);
-        // Unable to get the two objects with the same id value to evaluate properly, I had to convert them to strings for a reliable strict comparison.
-        if (userId.toString() !== quote.userId.toString()) {
+        if (userId.toString() === superUser) {
+            await Quote.deleteOne({_id: req.params.id});
+            res.redirect('/quotes');
+        } else if (userId.toString() !== quote.userId.toString()) {
             return res.status(403).send(`You don't have permission to delete this quote`);
         } else {
             await Quote.deleteOne({_id: req.params.id});
-            res.redirect('/quotes')
-            res.redirect('/quotes')
+            res.redirect('/quotes');
         }
-
     } catch(error) {
         res.render('error', { message: error.message, error: error });
     }
 }
+
 
 
 async function update(req, res) {

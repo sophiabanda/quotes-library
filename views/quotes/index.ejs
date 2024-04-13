@@ -6,32 +6,37 @@
         </a>
     </div><br><br>
     <div class='row'>
-        <% quotes.forEach((quote) => { %>
-            <% if(quote.author) { %>
-                <div style="align-content: center;" class="col-sm-6">
-                    <a href="/quotes/<%= quote._id %>/edit">
-                        <div class="card border-light" >
-                            <div style="padding: 50px;" class="card-body">
-                                <h2 class="card-title">"<%= quote.content %>"</h2>
-                                <p class="card-text">Author: <%= quote.author.name %></p>
+        <% if(!quotes) { %>
+            <h3>Be the first to add a quote!</h3>
+        <% } else { %>
+            <% quotes.forEach((quote) => { %>
+                <% if(quote.author) { %>
+                    <div style="align-content: center;" class="col-sm-6">
+                        <a href="/quotes/<%= quote._id %>/edit">
+                            <div class="card border-light" >
+                                <div style="padding: 50px;" class="card-body">
+                                    <h2 class="card-title">"<%= quote.content %>"</h2>
+                                    <p class="card-text">Author: <%= quote.author.name %></p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            <% } else { %>
-                <div style="align-content: center;" class="col-sm-6">
-                    <a href="/quotes/<%= quote._id %>/edit">
-                        <div class="card border-light" >
-                            <div style="padding: 50px;" class="card-body">
-                                <h2 class="card-title">"<%= quote.content %>"</h2>
+                        </a>
+                    </div>
+                <% } else { %>
+                    <div style="align-content: center;" class="col-sm-6">
+                        <a href="/quotes/<%= quote._id %>/edit">
+                            <div class="card border-light" >
+                                <div style="padding: 50px;" class="card-body">
+                                    <h2 class="card-title">"<%= quote.content %>"</h2>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            <% } %>
-        <% }) %>
+                        </a>
+                    </div>
+                <% } %>
+            <% }) %>
+        <% } %>
     </div>
-</div>
+ </div>
+
 
 <%- include('../partials/footer') %>
 

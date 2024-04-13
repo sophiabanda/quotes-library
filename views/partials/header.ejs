@@ -26,15 +26,15 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Quote of the Moment</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/quotes">All Quotes</a>
+          </li>
           <% if(user) { %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                My Quotes
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                <li><a class="dropdown-item" href="/quotes">My Added Quotes</a></li>
-                <li><a class="dropdown-item" href="/quotes/new">Add a Quote</a></li>
-              </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="/quotes/new">Add a Quote</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/quotes/show">My Quotes</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,7 +49,7 @@
               <a class="nav-link" href="/logout">Logout&nbsp;&nbsp;<img id="user-avatar"src="<%= user.avatar %>" alt="user avatar">&nbsp;&nbsp;<%= user.email %></a>
             </li>
           </ul>
-          <form action="/search" class="d-flex" id="searchForm">
+          <form action="#" class="d-flex" id="searchForm">
             <input id="searchInput" class="form-control me-2" type="search" placeholder="Search Quotes Database" name="q" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>

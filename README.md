@@ -61,6 +61,7 @@ _*Visit the deployed site here [Quotes Library](https://quotes-library-productio
 ### _*Upcoming Features*_
 
 - API implementation for a more exploratory experience
-- Enhancements to the ease of use and UX
+- Working search functionality
+- Enhancements to the ease of use and UX (interconnectedness)
 - Single view option
 - Downloads
