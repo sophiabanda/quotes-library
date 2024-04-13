@@ -29,8 +29,6 @@ async function index(req, res) {
         res.render('quotes/index', { title: 'All Quotes', quotes });
     } catch (error) {
         res.render('error', { message: error.message, error: error });
-
-        res.redirect('/quotes');
     }
 }
 
