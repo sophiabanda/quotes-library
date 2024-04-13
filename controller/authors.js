@@ -11,7 +11,7 @@ module.exports = {
 }
 
 async function show(req, res) {
-    const authors = await Author.find({}).populate('authoredQuotes');
+    const authors = await Author.find({}).populate("authoredQuotes");
     res.render("authors/show", { title: "All Authors", authors })
 }
 
@@ -50,8 +50,8 @@ async function edit(req, res) {
             { _id: req.params.id },
             updates,
             { new: true }
-        ).populate('authoredQuotes');
-        console.log('update?-->', author)
+        ).populate("authoredQuotes");
+        console.log("update?-->", author)
         res.redirect("/authors");
     } catch(error) {
         console.log("error -->", error);

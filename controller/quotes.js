@@ -14,7 +14,7 @@ module.exports = {
 
 async function index(req, res) {
     try {
-        const quotes = await Quote.find({}).populate('author')
+        const quotes = await Quote.find({}).populate("author")
         res.render("quotes/index", { title: "My Quotes", quotes });
     } catch (error) {
         res.render("error", { message: error.message, error: error });
@@ -37,7 +37,7 @@ async function create(req, res) {
     try {
         const quote = await Quote.create(req.body);
         quote.userId = userId;
-        await quote.populate('userId');
+        await quote.populate("userId");
         await quote.save();
         res.redirect("/quotes");
     } catch (error) {
@@ -47,7 +47,7 @@ async function create(req, res) {
 
 async function edit(req, res) {
     const authors = await Author.find({});
-    const quote = await Quote.findOne({ _id: req.params.id }).populate('author');
+    const quote = await Quote.findOne({ _id: req.params.id }).populate("author");
     if (!quote) return res.redirect("/quotes");
 
     res.render("quotes/edit", { title: "Edit Quote", quote, authors });
@@ -59,7 +59,7 @@ async function deleteQuote(req, res) {
         const quote = await Quote.findById(req.params.id);
         // Unable to get the two objects with the same id value to evaluate properly, I had to convert them to strings for a reliable strict comparison.
         if (userId.toString() !== quote.userId.toString()) {
-            return res.status(403).send("You don't have permission to delete this quote");
+            return res.status(403).send(`You don't have permission to delete this quote`);
         } else {
             await Quote.deleteOne({_id: req.params.id});
             res.redirect("/quotes");

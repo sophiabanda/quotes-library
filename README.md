@@ -6,7 +6,7 @@ My intention behind the Quotes Library is to create a simple, aesthetically plea
 
 ### **Where to start:**
 
-Nodemon was used to spin up the server and keep the work flow more simple, but you can also spin it up with good ol' npm start. Here's a brief overview of the dependencies:
+Nodemon was used to spin up the server and keep the work flow more simple, but you can also spin it up with good ol" npm start. Here"s a brief overview of the dependencies:
 
 ```{
   "name": "quotes-library",
@@ -37,15 +37,15 @@ _*Visit the deployed site here [Quotes Library](https://quotes-library-productio
 
 #### Home Page (Quote of the Moment)
 
-![A screen capture of the landing page, the Quote of the Moment](public/images/QOTM.png 'Screen cap of QOTM')
+![A screen capture of the landing page, the Quote of the Moment](public/images/QOTM.png "Screen cap of QOTM")
 
-#### A logged in user's navbar:
+#### A logged in user"s navbar:
 
-![A screen capture of the navbar when logged in](public/images/loggedin_view.png 'Logged in navbar')
+![A screen capture of the navbar when logged in](public/images/loggedin_view.png "Logged in navbar")
 
 #### My Quotes Page:
 
-![A screen capture of My Quotes page](public/images/my-quotes.png 'My quotes page')
+![A screen capture of My Quotes page](public/images/my-quotes.png "My quotes page")
 
 
 ### **Technologies Used**
