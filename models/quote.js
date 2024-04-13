@@ -9,7 +9,12 @@ const quoteSchema = new Schema({
     },
     author: {
         type: Schema.Types.ObjectId, ref: "Author"
-    }
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: false,
+      },
 }, {timestamps: true});
 
 // Compile the schema into a model, export
