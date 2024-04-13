@@ -6,9 +6,8 @@
         </a>
     </div><br><br>
     <div class='row'>
+        <h5><%= quote %></h5>
         <% quotes.forEach((quote) => { %>
-            <h2>USER: <%= user._id %></h2>
-            <h2>QUOTE: <%= quotes[0].userId  %></h2>
             <% if(quote.author) { %>
                 <div style="align-content: center;" class="col-sm-6">
                     <a href="/quotes/<%= quote._id %>/edit">
