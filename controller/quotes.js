@@ -55,18 +55,22 @@ async function edit(req, res) {
 
 async function deleteQuote(req, res) {
     const userId = req.user._id;
-    const quote = await Quote.findById(req.params.id)
+    const quote = await Quote.findById(req.params.id);
     try {
         if(userId !== quote.userId) {
-            console.log("nope");
             res.redirect("/quotes");
         } else {
-            await Quote.deleteOne({ _id: req.params.id });
+            await Quote.deleteOne({_id: req.params.id});
             res.redirect("/quotes")
         }
     } catch(error) {
         res.render("error", { message: error.message, error: error });
     }
+}
+
+async function deleteQuote(req, res) {
+    await Quote.deleteOne({_id: req.params.id});
+    res.redirect("/quotes");
 }
 
 async function update(req, res) {
