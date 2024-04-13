@@ -64,10 +64,17 @@ async function deleteQuote(req, res) {
         } else {
             await Quote.deleteOne({_id: req.params.id});
             res.redirect("/quotes")
+            res.redirect("/quotes")
         }
+
     } catch(error) {
         res.render("error", { message: error.message, error: error });
     }
+}
+
+async function deleteQuote(req, res) {
+    await Quote.deleteOne({_id: req.params.id});
+    res.redirect("/quotes");
 }
 
 async function deleteQuote(req, res) {
