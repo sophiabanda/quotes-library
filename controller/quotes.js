@@ -54,7 +54,6 @@ async function edit(req, res) {
 
 async function deleteQuote(req, res) {
     const userId = req.user._id;
-    const quote = await Quote.findById(req.params.id);
     try {
         const quote = await Quote.findById(req.params.id);
         // Unable to get the two objects with the same id value to evaluate properly, I had to convert them to strings for a reliable strict comparison.

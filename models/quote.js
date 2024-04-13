@@ -8,7 +8,6 @@ const quoteSchema = new Schema({
         required: true
     },
     author: {
-<<<<<<< HEAD
         type: Schema.Types.ObjectId, ref: 'Author'
     },
     userId: {
@@ -16,10 +15,6 @@ const quoteSchema = new Schema({
         ref: 'User',
         required: false,
       },
-=======
-        type: Schema.Types.ObjectId, ref: "Author"
-    }
->>>>>>> parent of 61cbc7d (AUTHORIZATION to quote deletion)
 }, {timestamps: true});
 
 // Compile the schema into a model, export
