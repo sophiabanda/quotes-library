@@ -3,6 +3,8 @@
 <div style="margin-top: 10vh;">
     <form  action="/quotes/<%= quote._id %>?_method=PUT" method="POST">
         <fieldset>
+          <h4>USER <%= user._id %></h4>
+          <h4>QUOTES <%= quote.userId %></h4>
           <div>
             <label class="form-label mt-4">Update Content:</label>
             <textarea name="content" class="form-control" placeholder="<%= quote.content %>" rows="3" spellcheck="false"></textarea>

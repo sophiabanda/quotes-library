@@ -55,22 +55,18 @@ async function edit(req, res) {
 
 async function deleteQuote(req, res) {
     const userId = req.user._id;
-    const quote = await Quote.findById(req.params.id);
     try {
-        if(userId !== quote.userId) {
-            res.redirect("/quotes");
+        const quote = await Quote.findById(req.params.id);
+        // Unable to get the two objects with the same id value to evaluate properly, I had to convert them to strings for a reliable strict comparison.
+        if (userId.toString() !== quote.userId.toString()) {
+            return res.status(403).send("You don't have permission to delete this quote");
         } else {
             await Quote.deleteOne({_id: req.params.id});
-            res.redirect("/quotes")
+            res.redirect("/quotes");
         }
-    } catch(error) {
+    } catch (error) {
         res.render("error", { message: error.message, error: error });
     }
-}
-
-async function deleteQuote(req, res) {
-    await Quote.deleteOne({_id: req.params.id});
-    res.redirect("/quotes");
 }
 
 async function update(req, res) {
