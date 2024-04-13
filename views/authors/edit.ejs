@@ -1,43 +1,43 @@
-<%- include("../partials/header") %>
+<%- include('../partials/header') %>
 
-<form style="margin-top: 10vh;" action="/authors/<%= author._id %>?_method=PUT" method="POST">
+<form style='margin-top: 10vh;' action='/authors/<%= author._id %>?_method=PUT' method='POST'>
     <fieldset>  
         <div>
-            <div class="form-floating mb-3">
-                <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Name is required">
+            <div class='form-floating mb-3'>
+                <input name='name' type='text' class='form-control' id='floatingInput' placeholder='Name is required'>
                 <label><%= author.name %></label>
               </div>
-              <div class="form-floating mb-4">
-                <input name="url" type="text" class="form-control" id="floatingPassword" placeholder="<%= author.url %>" autocomplete="off">
+              <div class='form-floating mb-4'>
+                <input name='url' type='text' class='form-control' id='floatingPassword' placeholder='<%= author.url %>' autocomplete='off'>
                 <label><%= author.url %></label>
               </div>
-              <div class="form mb-4">
-                  <label class="form-label mb-3">Add a Bio</label>
-                  <textarea placeholder="<%= author.bio %>" name="bio" class="form-control" rows="3"></textarea>
+              <div class='form mb-4'>
+                  <label class='form-label mb-3'>Add a Bio</label>
+                  <textarea placeholder='<%= author.bio %>' name='bio' class='form-control' rows='3'></textarea>
               </div>
               <div>
                   <label>Add Birthdate: </label><br><br>
-                  <input style="height: 30px;" name="birthDate" type="date">
+                  <input style='height: 30px;' name='birthDate' type='date'>
               </div>
               <div>
-                <label class="form-label mt-4">Example multiple select</label>
-                <select name="authoredQuotes" class="form-select">
-                    <option selected disabled value="none">Select Associated Quote</option>
+                <label class='form-label mt-4'>Example multiple select</label>
+                <select name='authoredQuotes' class='form-select'>
+                    <option selected disabled value='none'>Select Associated Quote</option>
                     <% quotes.forEach((quote) => { %>
-                        <option value="<%= quote._id %>"><%= quote.content %> </option>
+                        <option value='<%= quote._id %>'><%= quote.content %> </option>
                     <% }) %>
                 </select>
               </div>
             <br>
         </div>
-        <button style="margin-right: 10px;"class="btn btn-primary" type="submit">Update Author</button>
+        <button style='margin-right: 10px;'class='btn btn-primary' type='submit'>Update Author</button>
     </fieldset>
 </form><br>
-<div style="margin-top: 10px;">
-    <form action="/authors/<%= author._id %>?_method=DELETE" method="POST">
-        <button class="btn btn-danger" type="submit">Delete Author</button>
+<div style='margin-top: 10px;'>
+    <form action='/authors/<%= author._id %>?_method=DELETE' method='POST'>
+        <button class='btn btn-danger' type='submit'>Delete Author</button>
     </form>
 </div>
 
-<%- include("../partials/footer") %>
+<%- include('../partials/footer') %>
 

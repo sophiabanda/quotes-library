@@ -5,29 +5,28 @@
 My intention behind the Quotes Library is to create a simple, aesthetically pleasing place to save and display your favorite quotes. Quotes Library implements user authorization and authentication with Google OAuth2. 
 
 ### **Where to start:**
-
-Nodemon was used to spin up the server and keep the work flow more simple, but you can also spin it up with good ol" npm start. Here"s a brief overview of the dependencies:
+Nodemon was used to spin up the server and keep the work flow more simple, but you can also spin it up with good ol' npm start. Here's a brief overview of the dependencies:
 
 ```{
-  "name": "quotes-library",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
+  'name': 'quotes-library',
+  'version': '0.0.0',
+  'private': true,
+  'scripts': {
+    'start': 'node ./bin/www'
   },
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "dotenv": "^16.4.5",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "express-session": "^1.18.0",
-    "http-errors": "~1.6.3",
-    "method-override": "^3.0.0",
-    "mongoose": "^8.3.0",
-    "morgan": "~1.9.1",
-    "passport": "^0.7.0",
-    "passport-google-oauth": "^2.0.0"
+  'dependencies': {
+    'cookie-parser': '~1.4.4',
+    'debug': '~2.6.9',
+    'dotenv': '^16.4.5',
+    'ejs': '~2.6.1',
+    'express': '~4.16.1',
+    'express-session': '^1.18.0',
+    'http-errors': '~1.6.3',
+    'method-override': '^3.0.0',
+    'mongoose': '^8.3.0',
+    'morgan': '~1.9.1',
+    'passport': '^0.7.0',
+    'passport-google-oauth': '^2.0.0'
   }
 }
 ```
@@ -37,15 +36,15 @@ _*Visit the deployed site here [Quotes Library](https://quotes-library-productio
 
 #### Home Page (Quote of the Moment)
 
-![A screen capture of the landing page, the Quote of the Moment](public/images/QOTM.png "Screen cap of QOTM")
+![A screen capture of the landing page, the Quote of the Moment](public/images/QOTM.png 'Screen cap of QOTM')
 
-#### A logged in user"s navbar:
+#### A logged in user's navbar:
 
-![A screen capture of the navbar when logged in](public/images/loggedin_view.png "Logged in navbar")
+![A screen capture of the navbar when logged in](public/images/loggedin_view.png 'Logged in navbar')
 
 #### My Quotes Page:
 
-![A screen capture of My Quotes page](public/images/my-quotes.png "My quotes page")
+![A screen capture of My Quotes page](public/images/my-quotes.png 'My quotes page')
 
 
 ### **Technologies Used**

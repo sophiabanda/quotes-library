@@ -1,44 +1,44 @@
-<%- include("../partials/header") %>
+<%- include('../partials/header') %>
 
-<ul style="margin-top: 30vh;" class="list-group">
+<ul style='margin-top: 30vh;' class='list-group'>
   <% authors.forEach((author) => { %>
-    <% if(author.name !== "Unknown" && author.authoredQuotes.length > 0 && author.bio) { %>
-      <a style="cursor: pointer;" href="/authors/<%= author.id %>/edit">
-        <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+    <% if(author.name !== 'Unknown' && author.authoredQuotes.length > 0 && author.bio) { %>
+      <a style='cursor: pointer;' href='/authors/<%= author.id %>/edit'>
+        <li class='list-group-item list-group-item-primary d-flex justify-content-between align-items-center'>
           <h2><%= author.name %></h2>&nbsp;&nbsp;&nbsp;&nbsp;
           <p><%= author.bio %></p>
-          <span class="badge bg-primary rounded-pill"><%= author.authoredQuotes.length %></span>
+          <span class='badge bg-primary rounded-pill'><%= author.authoredQuotes.length %></span>
         </li>
       </a>&nbsp;&nbsp;
-    <% } else if (author.name !== "Unknown" && author.authoredQuotes.length && author.bio) { %>
-      <a style="cursor: pointer;" href="/authors/<%= author.id %>/edit">
-        <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+    <% } else if (author.name !== 'Unknown' && author.authoredQuotes.length && author.bio) { %>
+      <a style='cursor: pointer;' href='/authors/<%= author.id %>/edit'>
+        <li class='list-group-item list-group-item-secondary d-flex justify-content-between align-items-center'>
           <h2><%= author.name %></h2>&nbsp;&nbsp;&nbsp;&nbsp;
             <p><%= author.bio %></p>
-          <span class="badge bg-primary rounded-pill"><%= author.authoredQuotes.length %> </span>
+          <span class='badge bg-primary rounded-pill'><%= author.authoredQuotes.length %> </span>
         </li>
       </a>
-    <% } else if(author.name !== "Unknown" && author.bio) { %>
-      <a style="cursor: pointer;" href="/authors/<%= author.id %>/edit">
-        <li class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
+    <% } else if(author.name !== 'Unknown' && author.bio) { %>
+      <a style='cursor: pointer;' href='/authors/<%= author.id %>/edit'>
+        <li class='list-group-item list-group-item-info d-flex justify-content-between align-items-center'>
           <h2><%= author.name %></h2>&nbsp;&nbsp;&nbsp;&nbsp;
           <p><%= author.bio %></p>
         </li>
       </a>&nbsp;&nbsp;
-    <% } else if (author.name !== "Unknown") { %>
-      <a style="cursor: pointer;" href="/authors/<%= author.id %>/edit">
-        <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+    <% } else if (author.name !== 'Unknown') { %>
+      <a style='cursor: pointer;' href='/authors/<%= author.id %>/edit'>
+        <li class='list-group-item list-group-item-success d-flex justify-content-between align-items-center'>
           <h2><%= author.name %></h2>&nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="badge bg-primary rounded-pill"><%= author.authoredQuotes.length %> </span>
+          <span class='badge bg-primary rounded-pill'><%= author.authoredQuotes.length %> </span>
         </li>
       </a>&nbsp;&nbsp;
     <% } %>
   <% }) %>
 </ul>
-<div style="justify-content: center; align-items: center;">
-  <a class="dropdown-item" href="/authors/new">
-    <button style="margin-right: 10px;"class="btn btn-primary" type="submit">Add an Author</button>
+<div style='justify-content: center; align-items: center;'>
+  <a class='dropdown-item' href='/authors/new'>
+    <button style='margin-right: 10px;'class='btn btn-primary' type='submit'>Add an Author</button>
   </a>
 </div>
 
-<%- include("../partials/footer") %>
+<%- include('../partials/footer') %>

@@ -1,6 +1,6 @@
-const Quote = require("../models/quote");
-const Author = require("../models/author");
-const User = require("../models/user");
+const Quote = require('../models/quote');
+const Author = require('../models/author');
+const User = require('../models/user');
 
 module.exports = {
     index,
@@ -14,21 +14,21 @@ module.exports = {
 
 async function index(req, res) {
     try {
-        const quotes = await Quote.find({}).populate("author")
-        res.render("quotes/index", { title: "My Quotes", quotes });
+        const quotes = await Quote.find({}).populate('author')
+        res.render('quotes/index', { title: 'My Quotes', quotes });
     } catch (error) {
-        res.render("error", { message: error.message, error: error });
+        res.render('error', { message: error.message, error: error });
 
-        res.redirect("/quotes");
+        res.redirect('/quotes');
     }
 }
 
 async function newQuote(req, res) {
     try {
         const user = await User.find({})
-        res.render("quotes/new", { title: "Add a new Quote", user });
+        res.render('quotes/new', { title: 'Add a new Quote', user });
     } catch (error) {
-        res.render("error", { message: error.message, error: error });
+        res.render('error', { message: error.message, error: error });
     }
 }
 
@@ -37,20 +37,20 @@ async function create(req, res) {
     try {
         const quote = await Quote.create(req.body);
         quote.userId = userId;
-        await quote.populate("userId");
+        await quote.populate('userId');
         await quote.save();
-        res.redirect("/quotes");
+        res.redirect('/quotes');
     } catch (error) {
-        res.render("error", { message: error.message, error: error });
+        res.render('error', { message: error.message, error: error });
     }
 }
 
 async function edit(req, res) {
     const authors = await Author.find({});
-    const quote = await Quote.findOne({ _id: req.params.id }).populate("author");
-    if (!quote) return res.redirect("/quotes");
+    const quote = await Quote.findOne({ _id: req.params.id }).populate('author');
+    if (!quote) return res.redirect('/quotes');
 
-    res.render("quotes/edit", { title: "Edit Quote", quote, authors });
+    res.render('quotes/edit', { title: 'Edit Quote', quote, authors });
 }
 
 async function deleteQuote(req, res) {
@@ -63,24 +63,15 @@ async function deleteQuote(req, res) {
             return res.status(403).send(`You don't have permission to delete this quote`);
         } else {
             await Quote.deleteOne({_id: req.params.id});
-            res.redirect("/quotes")
-            res.redirect("/quotes")
+            res.redirect('/quotes')
+            res.redirect('/quotes')
         }
 
     } catch(error) {
-        res.render("error", { message: error.message, error: error });
+        res.render('error', { message: error.message, error: error });
     }
 }
 
-async function deleteQuote(req, res) {
-    await Quote.deleteOne({_id: req.params.id});
-    res.redirect("/quotes");
-}
-
-async function deleteQuote(req, res) {
-    await Quote.deleteOne({_id: req.params.id});
-    res.redirect("/quotes");
-}
 
 async function update(req, res) {
     try {
@@ -92,10 +83,10 @@ async function update(req, res) {
             { _id: req.params.id },
             updates,
             { new: true }
-        ).populate("author");
-        res.redirect("/quotes");
+        ).populate('author');
+        res.redirect('/quotes');
     } catch (error) {
-        res.render("error", { message: error.message, error: error });
+        res.render('error', { message: error.message, error: error });
 
     }
 }

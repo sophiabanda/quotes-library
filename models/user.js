@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -9,11 +9,11 @@ const userSchema = new Schema({
     },
     favoriteQuotes: [{
       type: Schema.Types.ObjectId,
-      ref: "Quote"
+      ref: 'Quote'
     }],
     favoriteAuthors: [{
       type: Schema.Types.ObjectId,
-      ref: "Author"
+      ref: 'Author'
     }],
     email: String,
     avatar: String
@@ -21,4 +21,4 @@ const userSchema = new Schema({
     timestamps: true
   });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);

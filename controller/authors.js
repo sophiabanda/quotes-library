@@ -1,5 +1,5 @@
-const Author = require("../models/author");
-const Quote = require("../models/quote");
+const Author = require('../models/author');
+const Quote = require('../models/quote');
 
 module.exports = {
     new: newAuthor,
@@ -11,28 +11,28 @@ module.exports = {
 }
 
 async function show(req, res) {
-    const authors = await Author.find({}).populate("authoredQuotes");
-    res.render("authors/show", { title: "All Authors", authors })
+    const authors = await Author.find({}).populate('authoredQuotes');
+    res.render('authors/show', { title: 'All Authors', authors })
 }
 
 function newAuthor(req, res) {
-    res.render("authors/new", { title: "Add an Author" })
+    res.render('authors/new', { title: 'Add an Author' })
 }
 
 function create(req, res) {
     try {
         Author.create(req.body);
-        res.redirect("/authors")
+        res.redirect('/authors')
     } catch(error) {
-        console.log("error -->", error);
+        console.log('error -->', error);
     }
 }
 
 async function edit(req, res) {
     const quotes = await Quote.find({});
     const author = await Author.findOne({ _id: req.params.id });
-    if (!author) return res.redirect("/authors");
-    res.render("authors/edit", { title: `Edit ${ author.name }`, author, quotes });
+    if (!author) return res.redirect('/authors');
+    res.render('authors/edit', { title: `Edit ${ author.name }`, author, quotes });
   }
 
   async function update(req, res) {
@@ -50,19 +50,19 @@ async function edit(req, res) {
             { _id: req.params.id },
             updates,
             { new: true }
-        ).populate("authoredQuotes");
-        console.log("update?-->", author)
-        res.redirect("/authors");
+        ).populate('authoredQuotes');
+        console.log('update?-->', author)
+        res.redirect('/authors');
     } catch(error) {
-        console.log("error -->", error);
+        console.log('error -->', error);
     }
 }
 
   async function deleteAuthor(req, res) {
     try {
         await Author.deleteOne({ _id: req.params.id });
-        res.redirect("/authors")
+        res.redirect('/authors')
     } catch(error) {
-        console.log("error-->", error);
+        console.log('error-->', error);
     }
   }
