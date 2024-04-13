@@ -9,7 +9,7 @@ module.exports = {
     edit,
     delete: deleteQuote,
     update
-
+    
 }
 
 async function index(req, res) {
@@ -33,7 +33,6 @@ async function newQuote(req, res) {
 }
 
 async function create(req, res) {
-    const userId = req.user._id;
     try {
         const quote = await Quote.create(req.body);
         quote.userId = userId;
@@ -76,8 +75,8 @@ async function deleteQuote(req, res) {
 async function update(req, res) {
     try {
         let updates = {};
-        if (req.body.content) updates.content = req.body.content;
-        if (req.body.author) updates.author = req.body.author;
+        if(req.body.content) updates.content = req.body.content;
+        if(req.body.author) updates.author = req.body.author;
         updates = { $set: updates };
         await Quote.findOneAndUpdate(
             { _id: req.params.id },
