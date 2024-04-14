@@ -1,7 +1,6 @@
 const Quote = require('../models/quote');
 const Author = require('../models/author');
 const User = require('../models/user');
-const user = require("../models/user");
 
 module.exports = {
     index,
@@ -15,15 +14,13 @@ module.exports = {
 
 async function show(req, res) {
     const userId = req.user._id;
-    if(userId.toString() === req.user._id) {
         try {
-            const quotes = await Quote.find({}).populate('author')
+            const quotes = await Quote.find({userId: userId}).populate('author');
             res.render('quotes/show', { title: 'My Quotes', quotes });
         } catch (error) {
             res.render('error', { message: error.message, error: error });
         }
     }
-}
 
 async function index(req, res) {
     try {
@@ -37,7 +34,7 @@ async function index(req, res) {
 async function newQuote(req, res) {
     try {
         const user = await User.find({});
-        res.render('quotes/new', { title: 'Add a new Quote', user });
+        res.render('quotes/show', { title: 'Add a new Quote', user });
     } catch (error) {
         res.render('error', { message: error.message, error: error });
     }
@@ -76,14 +73,12 @@ async function deleteQuote(req, res) {
             return res.status(403).send(`You don't have permission to delete this quote`);
         } else {
             await Quote.deleteOne({_id: req.params.id});
-            res.redirect('/quotes');
+            res.redirect('/quotes/show');
         }
     } catch(error) {
         res.render('error', { message: error.message, error: error });
     }
 }
-
-
 
 async function update(req, res) {
     try {

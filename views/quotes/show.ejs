@@ -5,32 +5,35 @@
             <button style='margin-right: 10px;'class='btn btn-primary' type='submit'>Add a Quote</button>
         </a>
     </div><br><br>
-    <div class='row'>
-        <h5><%= quotes %></h5>
-        <% quotes.forEach((quote) => { %>
-            <% if(quote.author) { %>
-                <div style="align-content: center;" class="col-sm-6">
-                    <a href="/quotes/<%= quote._id %>/edit">
-                        <div class="card border-light" >
-                            <div style="padding: 50px;" class="card-body">
-                                <h2 class="card-title">"<%= quote.content %>"</h2>
-                                <p class="card-text">Author: <%= quote.author.name %></p>
+    <div style="justify-content: center; align-items: center; text-align: center;" class='row'>
+        <% if(quotes.length === 0) { %>
+            <h2>Add a quote to see your personally added quotes here.</h2>
+        <% } else { %>
+            <% quotes.forEach((quote) => { %>
+                <% if(quote.author) { %>
+                    <div style="align-content: center;" class="col-sm-6">
+                        <a href="/quotes/<%= quote._id %>/edit">
+                            <div class="card border-light" >
+                                <div style="padding: 50px;" class="card-body">
+                                    <h2 class="card-title">"<%= quote.content %>"</h2>
+                                    <p class="card-text">Author: <%= quote.author.name %></p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            <% } else { %>
-                <div style="align-content: center;" class="col-sm-6">
-                    <a href="/quotes/<%= quote._id %>/edit">
-                        <div class="card border-light" >
-                            <div style="padding: 50px;" class="card-body">
-                                <h2 class="card-title">"<%= quote.content %>"</h2>
+                        </a>
+                    </div>
+                <% } else { %>
+                    <div style="align-content: center;" class="col-sm-6">
+                        <a href="/quotes/<%= quote._id %>/edit">
+                            <div class="card border-light" >
+                                <div style="padding: 50px;" class="card-body">
+                                    <h2 class="card-title">"<%= quote.content %>"</h2>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            <% } %>
-        <% }) %>
+                        </a>
+                    </div>
+                <% } %>
+            <% }) %>
+        <% } %>
     </div>
 </div>
 

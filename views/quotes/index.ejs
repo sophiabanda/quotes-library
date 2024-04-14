@@ -6,13 +6,12 @@
         </a>
     </div><br><br>
     <div class='row'>
-        <h1><%= quotes %></h1>
         <% if(!quotes) { %>
             <h3>Be the first to add a quote!</h3>
         <% } else { %>
             <% quotes.forEach((quote) => { %>
                 <% if(quote.author) { %>
-                    <div style="align-content: center;" class="col-sm-6">
+                    <div style="align-content: center; text-align: center;" class="col-sm-6">
                         <a href="/quotes/<%= quote._id %>/edit">
                             <div class="card border-light" >
                                 <div style="padding: 50px;" class="card-body">
