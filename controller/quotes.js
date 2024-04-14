@@ -1,6 +1,7 @@
 const Quote = require('../models/quote');
 const Author = require('../models/author');
 const User = require('../models/user');
+const user = require("../models/user");
 
 module.exports = {
     index,
@@ -13,13 +14,14 @@ module.exports = {
 }
 
 async function show(req, res) {
-    try {
-        const quotes = await Quote.find({}).populate('author')
-        res.render('quotes/show', { title: 'My Quotes', quotes });
-    } catch (error) {
-        res.render('error', { message: error.message, error: error });
-
-        res.redirect('/quotes');
+    const userId = req.user._id;
+    if(userId.toString() === req.user._id) {
+        try {
+            const quotes = await Quote.find({}).populate('author')
+            res.render('quotes/show', { title: 'My Quotes', quotes });
+        } catch (error) {
+            res.render('error', { message: error.message, error: error });
+        }
     }
 }
 
@@ -63,7 +65,7 @@ async function edit(req, res) {
 }
 
 async function deleteQuote(req, res) {
-    const superUser = "66107f31aaefc9ca74a8cf62";
+    const superUser = process.env.SUPER_USER;
     const userId = req.user._id;
     try {
         const quote = await Quote.findById(req.params.id);
