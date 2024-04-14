@@ -6,7 +6,7 @@
         </a>
     </div><br><br>
     <div style="justify-content: center; align-items: center; text-align: center;" class='row'>
-        <% if(quotes.length === 0) { %>
+        <% if(!quotes.length) { %>
             <h2>Add a quote to see your personally added quotes here.</h2>
         <% } else { %>
             <% quotes.forEach((quote) => { %>

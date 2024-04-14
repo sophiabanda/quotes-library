@@ -24,7 +24,7 @@ async function show(req, res) {
 
 async function index(req, res) {
     try {
-        const quotes = await Quote.find({}).populate('author')
+        const quotes = await Quote.find({}).populate('author');
         res.render('quotes/index', { title: 'All Quotes', quotes });
     } catch (error) {
         res.render('error', { message: error.message, error: error });
@@ -34,7 +34,7 @@ async function index(req, res) {
 async function newQuote(req, res) {
     try {
         const user = await User.find({});
-        res.render('quotes/show', { title: 'Add a new Quote', user });
+        res.render('quotes/new', { title: 'Add a new Quote', user });
     } catch (error) {
         res.render('error', { message: error.message, error: error });
     }
