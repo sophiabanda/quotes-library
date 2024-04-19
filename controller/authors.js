@@ -19,9 +19,9 @@ function newAuthor(req, res) {
     res.render('authors/new', { title: 'Add an Author' })
 }
 
-function create(req, res) {
+async function create(req, res) {
     try {
-        Author.create(req.body);
+        await Author.create(req.body);
         res.redirect('/authors')
     } catch(error) {
         console.log('error -->', error);
