@@ -51,7 +51,6 @@ async function edit(req, res) {
             updates,
             { new: true }
         ).populate('authoredQuotes');
-        console.log('update?-->', author)
         res.redirect('/authors');
     } catch(error) {
         console.log('error -->', error);

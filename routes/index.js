@@ -7,7 +7,6 @@ const Quote = require('../models/quote');
 // GET Home Page
 router.get("/", async function(req, res, next) {
   let quotes = await Quote.find({}).populate("author");
-  console.log("quotes::::",quotes)
   let j;
   for (let i = quotes.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
