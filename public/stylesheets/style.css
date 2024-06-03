@@ -1,21 +1,17 @@
-a {
+body a {
   text-decoration: none;
- }
- 
- 
- #user-avatar {
+}
+
+#user-avatar {
   border-radius: 50%;
   max-height: 40px;
   max-width: 40px;
- }
- 
- 
- .nav > a {
+}
+
+.nav > a {
   font-size: 20px;
- }
- 
- 
- .nav-link .nav-link.active {
+}
+
+.nav-link .nav-link.active {
   font-size: larger;
- }
- 
+}
