@@ -2,10 +2,11 @@
 
 ### **Description:**
 
-My intention behind the Quotes Library is to create a simple, aesthetically pleasing place to save and display your favorite quotes. Quotes Library implements user authorization and authentication with Google OAuth2. 
+My intention behind the Quotes Library is to create a simple, aesthetically pleasing place to save and display your favorite quotes. Quotes Library implements user authorization and authentication with Google OAuth2.
 
 ### **Where to start:**
-Nodemon was used to spin up the server and keep the work flow more simple, but you can also spin it up with good ol' npm start. Here's a brief overview of the dependencies:
+
+You can spin this up with **npm start**. Here's a brief overview of the dependencies:
 
 ```{
   'name': 'quotes-library',
@@ -33,7 +34,6 @@ Nodemon was used to spin up the server and keep the work flow more simple, but y
 
 _*Visit the deployed site here [Quotes Library](https://quotes-library-production.up.railway.app/)*_
 
-
 #### Home Page (Quote of the Moment)
 
 ![A screen capture of the landing page, the Quote of the Moment](public/images/QOTM.png 'Screen cap of QOTM')
@@ -45,7 +45,6 @@ _*Visit the deployed site here [Quotes Library](https://quotes-library-productio
 #### My Quotes Page:
 
 ![A screen capture of My Quotes page](public/images/my-quotes.png 'My quotes page')
-
 
 ### **Technologies Used**
 
@@ -60,8 +59,8 @@ _*Visit the deployed site here [Quotes Library](https://quotes-library-productio
 
 ### _*Upcoming Features*_
 
-- API implementation for a more exploratory experience
-- Working search functionality
-- Enhancements to the ease of use and UX (interconnectedness)
-- Single view option
-- Downloads
+-   API implementation for a more exploratory experience
+-   Working search functionality
+-   Enhancements to the ease of use and UX (interconnectedness)
+-   Single view option
+-   Downloads
